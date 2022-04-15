@@ -40,6 +40,10 @@
 | nestjs-stripe                                   | Handles all kinds of stripe releated tasks                         |
 | stripe                                          | Core stripe SDK                                                    |
 
+# Swagger
+![Screenshot 2022-04-16 at 12 55 45 AM](https://user-images.githubusercontent.com/86257329/163624816-1750adbb-6555-4a3a-8797-73ce1549a121.png)
+
+
 # Database
 ### How to create a migration?
 ```
