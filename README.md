@@ -14,7 +14,7 @@
 | src/modules/domain            | A module that contains all business releated code                                                                                                                                 |
 | src/config                    | Contains application wide configurations. e.g. cors.config.ts, redis.config.ts, smtp.config.ts, etc                                                                               |
 | src/assets                    | Contains i18n files, static assets, etc                                                                                                                                           |
-| src/views                     | Contains html and email template.                                                                                                                                                 |
+| src/views                     | Contains html and email templates.                                                                                                                                                 |
 
 ## Dependencies
 
@@ -103,6 +103,6 @@
 
 ```
 
-### How to customizable cron jobs?
+### How to customize cron jobs?
 ```
 ```
