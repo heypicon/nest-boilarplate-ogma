@@ -10,7 +10,7 @@ import { CoursesModule } from "./modules/domain/courses/courses.module";
 import { ContentPricesModule } from "./modules/domain/content-prices/content-prices.module";
 import { CategoriesModule } from "./modules/domain/categories/categories.module";
 import { CertificatesModule } from "./modules/domain/certificates/certificates.module";
-import { OrdersModule } from "./modules/domain/orders/orders.module";
+import { OrderModule } from "./modules/domain/order/order.module";
 import { PaymentsModule } from "./modules/domain/payments/payments.module";
 import { PayoutsModule } from "./modules/domain/payouts/payouts.module";
 import { UsersModule } from "./modules/domain/users/users.module";
@@ -30,7 +30,7 @@ import { DatabaseModule } from "./modules/database/database.module";
     ContentPricesModule,
     CoursesModule,
     EventsModule,
-    OrdersModule,
+    OrderModule,
     PaymentsModule,
     PayoutsModule,
     ProductsModule,
