@@ -1,41 +1,22 @@
-import { Module } from "@nestjs/common";
-import { ConfigModule } from "@nestjs/config";
-import { CommonModule } from "./modules/common/common.module";
-import { AuthModule } from "./modules/domain/auth/auth.module";
-import { AnalyticsModule } from "./modules/domain/analytics/analytics.module";
-import { ProductsModule } from "./modules/domain/products/products.module";
-import { BankAccountsModule } from "./modules/domain/bank-accounts/bank-accounts.module";
-import { EventsModule } from "./modules/domain/events/events.module";
-import { CoursesModule } from "./modules/domain/courses/courses.module";
-import { ContentPricesModule } from "./modules/domain/content-prices/content-prices.module";
-import { CategoriesModule } from "./modules/domain/categories/categories.module";
-import { CertificatesModule } from "./modules/domain/certificates/certificates.module";
-import { OrderModule } from "./modules/domain/order/order.module";
-import { PaymentsModule } from "./modules/domain/payments/payments.module";
-import { PayoutsModule } from "./modules/domain/payouts/payouts.module";
-import { UsersModule } from "./modules/domain/users/users.module";
-import { RolesModule } from "./modules/domain/roles/roles.module";
-import { DatabaseModule } from "./modules/database/database.module";
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { I18nModule } from 'nestjs-i18n';
+import { join } from 'path';
+import { CommonModule } from './common/common.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ expandVariables: true, isGlobal: true }),
-    // DatabaseModule,
+    ConfigModule.forRoot({ expandVariables: true, isGlobal: true, cache: true }),
+    I18nModule.forRoot({
+      fallbackLanguage: 'en',
+      loaderOptions: {
+        path: join(__dirname, 'assets', 'lang'),
+        watch: true,
+      },
+    }),
     CommonModule,
-    AnalyticsModule,
     AuthModule,
-    BankAccountsModule,
-    CategoriesModule,
-    CertificatesModule,
-    ContentPricesModule,
-    CoursesModule,
-    EventsModule,
-    OrderModule,
-    PaymentsModule,
-    PayoutsModule,
-    ProductsModule,
-    RolesModule,
-    UsersModule,
   ],
 })
 export class AppModule {}

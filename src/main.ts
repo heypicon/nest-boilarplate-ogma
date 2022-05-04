@@ -1,10 +1,10 @@
 import { NestFactory } from "@nestjs/core";
-import { SwaggerModule, DocumentBuilder } from "@nestjs/swagger";
 import { Logger, ValidationPipe } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import * as cookieParser from "cookie-parser";
 import * as compression from "compression";
 import { AppModule } from "./app.module";
+import { setupSwagger } from "./swagger";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -12,16 +12,7 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   // Setup swagger documentation
-  const config = new DocumentBuilder()
-    .setTitle("Simplifiyou API")
-    .setVersion("1.0.0")
-    .setDescription(
-      "This API provides access to modifying and retrieving Simplifiyou resources."
-    )
-    .addBearerAuth()
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup(configService.get("DOCUMENTATION_PATH"), app, document);
+  setupSwagger(app);
 
   // Setup global middlewares
   app.use(compression());
